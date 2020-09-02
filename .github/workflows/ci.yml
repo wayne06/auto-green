@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "18 */36 * * *"
 
 jobs:
   autogreen:
@@ -16,10 +16,10 @@ jobs:
 
       - name: Auto green
         run: |
-          git config --local user.email "justjavac@gmail.com"
-          git config --local user.name "迷渡"
+          git config --local user.email "zs577215@gmail.com"
+          git config --local user.name "wayne06"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           date +"%Y-%m-%d %H:%M:%S.%N" > keepchange.txt
-          git commit -am "a commit every day, keep your girlfriend far away"
+          git commit -am "test commit 1"
           git push
